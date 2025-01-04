@@ -4,6 +4,9 @@ This is an Android application written in Kotlin
 that plays a random liked music track from Yandex Music
 when an alarm clock goes off.
 
+Communication with Yandex servers is based on
+[unofficial reverse engineered Yandex Music API][Yandex_Music_API_link].
+
 ## Requirements
 
 * [Windows 10][Windows_10_link].
@@ -152,6 +155,8 @@ turn on the screen of your device. The application will be opened.
 
 
 
+
+[Yandex_Music_API_link]: https://github.com/MarshalX/yandex-music-api
 
 [Windows_10_link]: https://www.microsoft.com/software-download/windows10
 [Android_Studio_link]: https://developer.android.com/studio
