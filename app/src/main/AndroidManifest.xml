@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <!-- To check internet connection. -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"
+        tools:ignore="ProtectedPermissions" />
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <!-- To open activity after clicking notification. -->
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"/>
+
+
+    <application
+        android:name="com.github.mydeardoctor.yandexmusicalarmclock.application.MyApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.YandexMusicAlarmClock"
+        tools:targetApi="31">
+
+        <!-- SingleTask means that there can be only one task with this activity. -->
+        <activity
+            android:name="com.github.mydeardoctor.yandexmusicalarmclock.ui.MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.YandexMusicAlarmClock"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name="com.github.mydeardoctor.yandexmusicalarmclock.alarmclock.AlarmReceiver"
+            android:enabled="true"
+            android:exported="false" />
+
+        <service
+            android:name="com.github.mydeardoctor.yandexmusicalarmclock.musicplayer.MusicService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback"/>
+
+    </application>
+
+</manifest>
